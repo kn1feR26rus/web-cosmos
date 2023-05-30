@@ -28,6 +28,7 @@
 }
 body {
     background: #F9F8FD;
+    overflow-x: hidden;
 }
 .container {
     max-width: 1400px;
@@ -107,6 +108,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    transition: all .7s;
+    z-index: 5;
+}
+
+.banner__btn:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(101.11deg, #28DEEE 7.11%, #4B77B9 124.09%);
+    transition: 1s;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.banner__btn:hover:before {
+    width: 100%;
 }
 .about {
     width: 100%;
@@ -181,6 +201,15 @@ body {
     top: 0;
     background-color: #6ED3B5;
     border-radius: 5px 0px 0px 5px;
+    transition: all .7s;
+}
+.about__item:hover .about__item-line {
+    width: 100%;
+    border-radius: 5px;
+}
+.about__item:hover span {
+    color: white;
+    z-index: 2;
 }
 .about__item-line_red {
     background: #FF6F50;
@@ -203,6 +232,7 @@ body {
     line-height: 44px;
     text-align: center;
     color: #4B77B9;
+    transition: all .7s;
 }
 .about__item-text {
     font-weight: 400;
@@ -211,6 +241,7 @@ body {
     text-align: center;
     color: #4B77B9;
     min-height: 35px;
+    transition: all .7s;
 }
 .about__img {
     width: 53%;
@@ -249,7 +280,16 @@ body {
     width: 32%;
     box-sizing: border-box;
     position: relative;
+    transition: all 1s;
+    transform: translateY(0);
 }
+.company__item:hover {
+  animation: ani 1s forwards;
+}
+@keyframes ani {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-10%);}
+  }
 .company__item-title {
     font-weight: 500;
     font-size: 24px;
@@ -280,6 +320,7 @@ body {
     background-size: contain;
     width: 12px;
     height: 10px;
+    background-repeat: no-repeat;
 }
 .company__btn {
     text-decoration: none;
@@ -298,6 +339,23 @@ body {
     position: absolute;
     right: 20px;
     bottom: 20px;
+    transition: all .7s;
+    z-index: 5;
+}
+.company__btn:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(101.11deg, #28DEEE 7.11%, #4B77B9 124.09%);
+    transition: 1s;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.company__btn:hover:before {
+    width: 100%;
 }
 
 .develop {
@@ -318,6 +376,7 @@ body {
     border-radius: 30px 0px 0px 30px;
     width: 20px;
     background: #AF93FF;
+    transition: all .6s;
 }
 .develop__item-line_orange {
     background: #FFB359;
@@ -346,8 +405,20 @@ body {
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.18);
 }
+
+.develop__item:hover .develop__item-line {
+    width: 100px;
+    height: 50px;
+    border-radius: 30px 0 30px 0;
+}
+
 .develop__img {
     margin-bottom: 15px;
+    transition: all .6s;
+}
+
+.develop__item:hover .develop__img{
+    transform: rotate(360deg);
 }
 .develop__title {
     font-weight: 500;
@@ -381,6 +452,7 @@ body {
     background-size: contain;
     width: 12px;
     height: 10px;
+    background-repeat: no-repeat;
 }
 .advant {
     padding: 50px 0;
@@ -458,6 +530,7 @@ body {
     background-image: url('/assets/images/company-list.png');
     background-size: contain;
     width: 12px;
+    background-repeat: no-repeat;
     height: 10px;
 }
 .steps__item:not(:last-child) {
@@ -478,6 +551,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-content: space-around;
 }
 .problem__item {
     padding: 0px 10px;
@@ -490,35 +564,54 @@ body {
     font-size: 16px;
     line-height: 18px;
     color: #FFFFFF;
-    margin-bottom: 10px;
     height: 60px;
 }
+
+@keyframes float {
+    0% {
+    transform: translatex(0px);
+    }
+    50% {
+    transform: translatex(-30px);
+    }
+    100% {
+    transform: translatex(0px);
+    }
+  }
+
 .problem__item1 {
     width: 59%;
     background: #5096FF;
+    animation: float 4s ease-in-out infinite;
 }
 .problem__item2 {
     width: 39%;
     background: #FFB359;
+    animation: float 8s ease-in-out infinite;
 }
 .problem__item3 {
     width: 55%;
     background: #FF6F50;
+    animation: float 5s ease-in-out infinite;
 }
 .problem__item4 {
     width: 43%;
     background: #4BD071;
+    animation: float 4s ease-in-out infinite;
 }
 .problem__item5 {
     width: 63%;
     background: #50C0FF;
+    animation: float 9s ease-in-out infinite;
 }
 .problem__item6 {
     width: 35%;
     background: #4B77B9;
+    animation: float 6s ease-in-out infinite;
 }
 .problem__item7 {
-    width: 80%;
+    width: 50%;
     background: #AF93FF;
     margin: 0 auto;
+    animation: float 6s ease-in-out infinite;
 }
